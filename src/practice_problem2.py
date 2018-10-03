@@ -2,8 +2,8 @@
 PRACTICE Test 2, practice_problem 2.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Achintya Gupta.
+"""  # TO: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -42,7 +42,7 @@ def main():
 def run_test_practice_problem2a():
     """ Tests the   practice_problem2a  function. """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # TO: 2. Implement this TEST function.
     #   It TESTS the  practice_problem2a  function defined below.
     #   Include at least **   4 reasonable   ** tests.
     #
@@ -55,7 +55,26 @@ def run_test_practice_problem2a():
     print('--------------------------------------------------')
     print('Testing the   practice_problem2a   function:')
     print('--------------------------------------------------')
-
+    # Test1:
+    expected = [0,4,3,-1,2]
+    actual = practice_problem2a([0,4,3,-1,2],0)
+    print('Expected:',expected)
+    print('Actual',actual)
+    # Test2:
+    expected = []
+    actual = practice_problem2a([], 200)
+    print('Expected:', expected)
+    print('Actual', actual)
+    # Test3:
+    expected = [0, 4, 3, -1, 2]
+    actual = practice_problem2a([1, 5, 4, 0, 3], -1)
+    print('Expected:', expected)
+    print('Actual', actual)
+    # Test4:
+    expected = [0, 4, 3, -1, 2]
+    actual = practice_problem2a((-2,2,1,-3,0), 2)
+    print('Expected:', expected)
+    print('Actual', actual)
 
 def practice_problem2a(sequence, delta):
     """
@@ -75,8 +94,12 @@ def practice_problem2a(sequence, delta):
       :type sequence: [int]
       :type delta:    int
     """
+    list=[]
+    for k in range(len(sequence)):
+        list=list+[sequence[k]+delta]
+    return list
     ####################################################################
-    # TODO: 3. Implement and test this function.
+    # TO: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
