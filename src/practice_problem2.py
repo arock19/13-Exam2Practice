@@ -192,8 +192,13 @@ def practice_problem2b(sequence):
     Type hints:
       :type sequence [str]
     """
+    str=''
+    for k in range(len(sequence)):
+        if sequence[k] != '':
+            str=str+sequence[k][0]
+    return str
     ####################################################################
-    # TODO: 4. Implement and test this function.
+    # TO: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
