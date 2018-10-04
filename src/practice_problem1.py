@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  IMPLEMENTING CLASSES.  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Achintya Gupta.
+"""  # TO: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -39,9 +39,9 @@ def main():
     # UN-comment tests as you work the problems.
     ####################################################################
 
-#     run_test_init()
-#     run_test_append_string()
-#     run_test_double()
+#    run_test_init()
+#    run_test_append_string()
+    run_test_double()
 #     run_test_shrink()
 #     run_test_double_then_shrink()
 #     run_test_reset()
@@ -93,8 +93,13 @@ class Box(object):
           :type contents: str
           :type volume: int
         """
+        self.contents=contents
+        if len(contents) > volume:
+            self.contents = ''
+        self.volume=volume
+
         # --------------------------------------------------------------
-        # TODO: 2. Implement and test this function.
+        # TO: 2. Implement and test this function.
         #     See the testing code (below) for more examples.
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -134,8 +139,17 @@ class Box(object):
         Type hints:
           :type additional_contents: str
         """
+        str=''
+        for k in range(len(additional_contents)):
+            if len(self.contents)!=self.volume:
+                self.contents=self.contents+additional_contents[k]
+            else:
+                str=str+additional_contents[k]
+        return str
+
+
         # --------------------------------------------------------------
-        # TODO: 3. Implement and test this function.
+        # TO: 3. Implement and test this function.
         #     See the testing code (below) for more examples.
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -162,7 +176,7 @@ class Box(object):
         What comes in:
           -- self
         What goes out:
-          Returrns a string that is whatever substring of the
+          Returns a string that is whatever substring of the
           doubled contents did not fit in this Box
           (or the empty string if the entire doubled contents fit)
         Side effects:
@@ -190,8 +204,9 @@ class Box(object):
           #   s is 'Robot Fun'   [this is the part of the doubled
           #                       contents that did NOT fit]
         """
+        return self.append_string(self.contents)
         # --------------------------------------------------------------
-        # TODO: 4. Implement and test this function.
+        # TO: 4. Implement and test this function.
         #     The testing code is already written for you (above).
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -239,6 +254,7 @@ class Box(object):
         Type hints:
           :type new_volume: int
         """
+        
         # --------------------------------------------------------------
         # TODO: 5. Implement and test this function.
         #     The testing code is already written for you (above).
