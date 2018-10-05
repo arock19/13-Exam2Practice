@@ -41,11 +41,11 @@ def main():
 
 #    run_test_init()
 #    run_test_append_string()
-    run_test_double()
-#     run_test_shrink()
-#     run_test_double_then_shrink()
-#     run_test_reset()
-#     run_test_steal()
+#    run_test_double()
+#    run_test_shrink()
+#    run_test_double_then_shrink()
+#    run_test_reset()
+    run_test_steal()
 #     run_test_get_history()
 #     run_test_combined_box()
 
@@ -97,6 +97,8 @@ class Box(object):
         if len(contents) > volume:
             self.contents = ''
         self.volume=volume
+        self.con0 = self.contents
+        self.vol0 = self.volume
 
         # --------------------------------------------------------------
         # TO: 2. Implement and test this function.
@@ -254,9 +256,14 @@ class Box(object):
         Type hints:
           :type new_volume: int
         """
-        
+        con=self.contents
+        self.contents=''
+        self.volume=new_volume
+        return self.append_string(con)
+
+
         # --------------------------------------------------------------
-        # TODO: 5. Implement and test this function.
+        # TO: 5. Implement and test this function.
         #     The testing code is already written for you (above).
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -311,8 +318,10 @@ class Box(object):
         Type hints:
           :type new_volume: int
         """
+        return len(self.double()+self.shrink(new_volume))
+
         # --------------------------------------------------------------
-        # TODO: 6. Implement and test this function.
+        # TO: 6. Implement and test this function.
         #     The testing code is already written for you (above).
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -330,8 +339,10 @@ class Box(object):
           Changes this Box's contents and volume to whatever they were
           when this Box was constructed.
         """
+        self.volume=self.vol0
+        self.contents = self.con0
         # --------------------------------------------------------------
-        # TODO: 7. Implement and test this function.
+        # TO: 7. Implement and test this function.
         #     The testing code is already written for you (above).
         # --------------------------------------------------------------
         # --------------------------------------------------------------
