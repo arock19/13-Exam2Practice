@@ -45,9 +45,9 @@ def main():
 #    run_test_shrink()
 #    run_test_double_then_shrink()
 #    run_test_reset()
-    run_test_steal()
-#     run_test_get_history()
-#     run_test_combined_box()
+#    run_test_steal()
+#    run_test_get_history()
+    run_test_combined_box()
 
 
 ########################################################################
@@ -99,6 +99,7 @@ class Box(object):
         self.volume=volume
         self.con0 = self.contents
         self.vol0 = self.volume
+        self.history=[]
 
         # --------------------------------------------------------------
         # TO: 2. Implement and test this function.
@@ -339,6 +340,7 @@ class Box(object):
           Changes this Box's contents and volume to whatever they were
           when this Box was constructed.
         """
+        self.history=self.history+[self.contents]
         self.volume=self.vol0
         self.contents = self.con0
         # --------------------------------------------------------------
@@ -369,8 +371,10 @@ class Box(object):
         Type hints:
           :type other_box: Box
         """
+        leftovers = self.append_string(other_box.contents)
+        other_box.contents=leftovers
         # --------------------------------------------------------------
-        # TODO: 8. Implement and test this function.
+        # TO: 8. Implement and test this function.
         #     The testing code is already written for you (above).
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -412,8 +416,9 @@ class Box(object):
           h = b.get_history()
           #   h is now ['GoodGo', 'GoodBye']
         """
+        return self.history
         # --------------------------------------------------------------
-        # TODO: 9. Implement and test this function.
+        # TO: 9. Implement and test this function.
         #     The testing code is already written for you (above).
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -438,8 +443,9 @@ class Box(object):
         Type hints:
           :type other_box: Box
         """
+        return Box((self.contents+other_box.contents),(self.volume+other_box.volume))
         # --------------------------------------------------------------
-        # TODO: 10. Implement and test this function.
+        # TO: 10. Implement and test this function.
         #     The testing code is already written for you (above).
         # --------------------------------------------------------------
         # --------------------------------------------------------------
